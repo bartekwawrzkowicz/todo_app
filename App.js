@@ -1,6 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { FlatList, StyleSheet, Text, View } from 'react-native';
+import AddNew from './src/containers/AddNew';
 
 export default function App() {
 
@@ -20,36 +21,27 @@ export default function App() {
           <>
             <View key={position.item.id} style={{ width: '100%', padding: 15, borderBottom: '2px', borderBottomColor: 'black', flexDirection: 'row', backgroundColor: 'red' }}>
               <View style={{ width: '80%' }}>
-                <Text style={textStyle.firstContainer}>{position.item.text}</Text>
+                <Text style={styles.container}>{position.item.text}</Text>
               </View>
               <View style={{ width: '20%' }}>
-                <Text style={textStyle.firstContainer}>X</Text>
+                <Text style={styles.container}>X</Text>
               </View>
+
+
             </View>
-
-
           </>
         )
       }} />
       <StatusBar style="auto" />
+      <AddNew />
     </View>
   );
 }
 
-const textStyle = StyleSheet.create({
-  firstContainer: {
-    fontSize: 30,
-    textTransform: 'uppercase',
-    color: 'white',
-    justifyContent: 'center',
-  }
-})
-
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: 'yellow',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+    fontSize: 20,
+    color: 'white',
+    textTransform: 'uppercase',
+  }
+})
