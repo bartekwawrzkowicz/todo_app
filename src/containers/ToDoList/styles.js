@@ -1,22 +1,24 @@
 import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
-    addNewContainer: {
-        position: 'absolute',
-        bottom: 20,
+    rowContainer: {
         width: '100%',
+        padding: 15,
+        borderBottomWidth: 1,
+        borderBottomColor: 'black',
         flexDirection: 'row',
+        backgroundColor: 'red',
     },
 
-    addNewContainerLeft: {
+    rowContainerLeft: {
         width: '80%',
     },
 
-    addNewContainerRight: {
+    rowContainerRight: {
         width: '20%',
     },
 
-    addNewContainerTextInput: {
+    rowContainerText: {
         fontSize: 20,
         color: 'white',
         textTransform: 'uppercase',
