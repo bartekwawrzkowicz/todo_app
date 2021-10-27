@@ -4,10 +4,12 @@ export const styles = StyleSheet.create({
     rowContainer: {
         width: '100%',
         padding: 15,
+        marginTop: 10,
         borderBottomWidth: 1,
         borderBottomColor: 'black',
         flexDirection: 'row',
         backgroundColor: 'red',
+        borderRadius: 10,
     },
 
     rowContainerLeft: {

@@ -1,25 +1,35 @@
-import React, { useState } from 'react';
-import { Button, TextInput, View } from 'react-native';
+import React from 'react';
+import { Button, ImagePropTypes, TextInput, View } from 'react-native';
 import { styles } from './styles';
 
-const AddNew = () => {
+class AddNew extends React.Component {
+    constructor() {
+        super();
 
-    const [Text, setText] = useState('');
+        this.state = {
+            text: ''
+        };
+    }
 
-    const textChangeHandler = event => setText(event.target.value);
-
-    return (
-        <View style={styles.addNewContainer}>
-            <View style={styles.addNewContainerLeft}>
-                <TextInput style={styles.addNewContainerTextInput}
-                    onChangeText={textChangeHandler}
-                />
+    render() {
+        return (
+            <View style={styles.addNewContainer} >
+                <View style={styles.addNewContainerLeft}>
+                    <TextInput style={styles.addNewContainerTextInput}
+                        onChangeText={text => this.setState({ text })
+                        }
+                    />
+                </View>
+                <View style={styles.addNewContainerRight}>
+                    <Button title={'Add'} onPress={
+                        this.props.onPress ? () => {
+                            this.props.onPress(this.state.text)
+                        } : () => { }
+                    } />
+                </View>
             </View>
-            <View style={styles.addNewContainerRight}>
-                <Button title={'Add'} onPress={() => { }} />
-            </View>
-        </View>
-    );
+        );
+    }
 }
 
 export default AddNew;
