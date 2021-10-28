@@ -1,6 +1,8 @@
 import React from 'react';
 import { Button, ImagePropTypes, TextInput, View } from 'react-native';
 import { styles } from './styles';
+import { connect } from 'react-redux';
+import { addNewItem } from '../../actions';
 
 class AddNew extends React.Component {
     constructor() {
@@ -22,14 +24,21 @@ class AddNew extends React.Component {
                 </View>
                 <View style={styles.addNewContainerRight}>
                     <Button title={'Add'} onPress={
-                        this.props.onPress ? () => {
-                            this.props.onPress(this.state.text)
-                        } : () => { }
+                        this.props.addNewItem(this.state.text)
                     } />
                 </View>
             </View>
         );
     }
 }
+
+const mapDispatchToProps = dispatch => ({
+    addNewItem: text => dispatch(addNewItem(text))
+});
+
+export default connect(
+    null,
+    mapDispatchToProps
+)(AddNew);
 
 export default AddNew;

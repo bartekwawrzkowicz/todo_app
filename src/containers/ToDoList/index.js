@@ -2,7 +2,7 @@ import React from 'react';
 import { FlatList, Text, View, TouchableOpacity } from 'react-native';
 import { styles } from './styles';
 import { connect } from 'react-redux';
-import deleteItem from '../../actions/index';
+import { deleteItem } from '../../actions';
 
 class ToDoList extends React.Component {
     render() {
