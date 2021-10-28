@@ -1,6 +1,8 @@
 import React from 'react';
 import { FlatList, Text, View, TouchableOpacity } from 'react-native';
 import { styles } from './styles';
+import { connect } from 'react-redux';
+import deleteItem from '../../actions/index';
 
 class ToDoList extends React.Component {
     render() {
@@ -15,11 +17,7 @@ class ToDoList extends React.Component {
                             </View>
                             <View style={styles.rowContainerRight}>
                                 <TouchableOpacity onPress={() => {
-                                    if (!this.props.onDelete) {
-                                        return;
-                                    } else {
-                                        this.props.onDelete(position.item.id)
-                                    }
+                                    this.props.deleteItem(item.item.id)
                                 }}>
                                     <Text style={styles.rowContainerText}>X</Text>
                                 </TouchableOpacity>
@@ -32,4 +30,15 @@ class ToDoList extends React.Component {
     }
 }
 
-export default ToDoList;
+const mapStateToProps = state => ({
+    list: state.todoList
+});
+
+const mapDispatchToProps = dispatch => {
+    deleteItem: (id) => dispatch(deleteItem(id))
+};
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(ToDoList);
