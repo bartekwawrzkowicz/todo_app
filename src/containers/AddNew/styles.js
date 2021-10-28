@@ -18,7 +18,12 @@ export const styles = StyleSheet.create({
 
     addNewContainerTextInput: {
         fontSize: 20,
-        color: 'white',
+        backgroundColor: '#ced5ee',
         textTransform: 'uppercase',
+        marginLeft: 20,
+        marginBottom: 20,
+        height: 40,
+        borderRadius: 10,
+        padding: 10,
     },
 })

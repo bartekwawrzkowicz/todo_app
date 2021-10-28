@@ -8,12 +8,12 @@ class ToDoList extends React.Component {
     render() {
 
         return (
-            <FlatList data={this.props.list} renderItem={position => {
+            <FlatList data={this.props.list} renderItem={item => {
                 return (
                     <>
-                        <View key={position.item.id} style={styles.rowContainer}>
+                        <View style={styles.rowContainer}>
                             <View style={styles.rowContainerLeft}>
-                                <Text style={styles.rowContainerText} key={position.item.id}>{position.item.text}</Text>
+                                <Text style={styles.rowContainerText} key={item.item.id}>{item.item.text}</Text>
                             </View>
                             <View style={styles.rowContainerRight}>
                                 <TouchableOpacity onPress={() => {
@@ -34,9 +34,9 @@ const mapStateToProps = state => ({
     list: state.todoList
 });
 
-const mapDispatchToProps = dispatch => {
-    deleteItem: (id) => dispatch(deleteItem(id))
-};
+const mapDispatchToProps = dispatch => ({
+    deleteItem: id => dispatch(deleteItem(id))
+});
 
 export default connect(
     mapStateToProps,

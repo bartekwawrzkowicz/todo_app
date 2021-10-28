@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, ImagePropTypes, TextInput, View } from 'react-native';
+import { Button, TextInput, View } from 'react-native';
 import { styles } from './styles';
 import { connect } from 'react-redux';
 import { addNewItem } from '../../actions';
@@ -19,12 +19,11 @@ class AddNew extends React.Component {
                 <View style={styles.addNewContainerLeft}>
                     <TextInput style={styles.addNewContainerTextInput}
                         onChangeText={text => this.setState({ text })
-                        }
+                        } placeholder="Add New Task"
                     />
                 </View>
                 <View style={styles.addNewContainerRight}>
-                    <Button title={'Add'} onPress={
-                        this.props.addNewItem(this.state.text)
+                    <Button color="white" title={'Add'} onPress={() => this.props.addNewItem(this.state.text)
                     } />
                 </View>
             </View>
@@ -40,5 +39,3 @@ export default connect(
     null,
     mapDispatchToProps
 )(AddNew);
-
-export default AddNew;

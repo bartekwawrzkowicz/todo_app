@@ -2,13 +2,15 @@ import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
     rowContainer: {
-        width: '100%',
+        width: '90%',
         padding: 15,
-        marginTop: 10,
+        marginLeft: '5%',
+        marginRight: '5%',
+        marginBottom: 10,
         borderBottomWidth: 1,
         borderBottomColor: 'black',
         flexDirection: 'row',
-        backgroundColor: 'red',
+        backgroundColor: '#6682e5',
         borderRadius: 10,
     },
 
